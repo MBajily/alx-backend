@@ -39,7 +39,8 @@ class Server:
 
     def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict:
         """
-        Return a dictionary with pagination data that's resilient to deletions.
+        Return a dictionary with pagination data that's
+        resilient to deletions.
 
         Args:
             index (int): The starting index of the page
@@ -54,7 +55,8 @@ class Server:
         data = []
         next_index = index
         for _ in range(page_size):
-            while next_index < len(self.dataset()) and next_index not in dataset:
+            while next_index < len(self.dataset())\
+                    and next_index not in dataset:
                 next_index += 1
             if next_index < len(self.dataset()):
                 data.append(dataset[next_index])
